@@ -1,0 +1,23 @@
+A project that uses overrides the Django authentication function to track
+failed login attempts on a per-user basis.  Code is based on BruteBuster
+(http://code.google.com/p/django-brutebuster/) but is simplified because of
+the dropped requirement of tracking IP addresses.  Django-Axes is another
+source of inspiration (http://code.google.com/p/django-axes/).
+
+Installation
+  1. Add failedloginblocker to your INSTALLED_APPS list in settings.py
+  2. Add failedloginblocker.middleware.FailedLoginBlockerMiddleware to
+    MIDDLEWARE_CLASSES in settings.py
+  3. Run 'python manage.py syncdb'
+  4. Restart your web server, if necessary.
+ 
+Settings (to be set in settings.py if wanted to override)
+  FLB_MAX_FAILURES - Number of failures to allow before blocking logins.
+      Default is set to 5.
+  FLB_BLOCK_INTERVAL - The interval from the last failed attempt to determine 
+      whether the current login attempt is to count as a failure.  
+      By default, decorators.py clears the failed logins if this interval 
+      has expired.
+      Default is set to 1440 minutes (or 1 day). 
+  
+ 

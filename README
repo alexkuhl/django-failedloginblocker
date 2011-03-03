@@ -11,7 +11,7 @@ Installation
   3. Run 'python manage.py syncdb'
   4. Restart your web server, if necessary.
  
-Settings (to be set in settings.py if wanted to override)
+Settings (set in settings.py if you want to override the defaults)
   FLB_MAX_FAILURES - Number of failures to allow before blocking logins.
       Default is set to 5.
   FLB_BLOCK_INTERVAL - The interval from the last failed attempt to determine 

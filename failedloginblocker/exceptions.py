@@ -1,4 +1,7 @@
-class LoginBlockedError( Exception ):
+
+from django import forms
+
+class LoginBlockedError( forms.ValidationError ):
   def __init__( self ):
     msg = "Your account has been locked due to too many failed login attempts."
     msg += " Contact us to have your account reactivated."
